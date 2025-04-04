@@ -14,6 +14,7 @@
       </form>
       <a href="{{ route('contacts.create') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Contact</a>
     </div>
+    <a href="{{route('contacts.index')}}" class="mb-3">Limpar Filtros</a>
 
     <div class="table-responsive">
       <table class="table table-hover align-middle">

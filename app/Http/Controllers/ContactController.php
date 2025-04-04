@@ -13,9 +13,9 @@ class ContactController extends Controller
      * Display a listing of the resource.
      */
     public function __construct(protected ContactService $service) {}
-    public function index()
+    public function index(Request $request)
     {
-        $contacts = Contact::paginate(10);
+        $contacts = $this->service->findAll($request->all());
         return view('contacts.index', compact('contacts'));
     }
 

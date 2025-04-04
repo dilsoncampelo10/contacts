@@ -10,22 +10,41 @@
         @stack('css')
     </head>
     <body>
-        @if (session('success'))
-            <div class="alert alert-success">
-                <div>{{session('success')}}</div>
-                
-            </div>
-        @endif
+        <nav class="navbar bg-body-tertiary mb-5">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{{route('contacts.index')}}"><i class="fa-solid fa-address-book"></i> Contact List</a>
+              @auth
 
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+                  <form action="{{route('logout')}}" method="post">
+                    @csrf
+                        <button class="btn btn-outline-primary" type="submit">Sair</button>
+                  </form>
+              @endauth
+              @guest
+                <a href="{{route('login')}}" class="btn btn-outline-primary">Login</a>
+              @endguest
+              
+              
             </div>
-        @endif
+          </nav>
+  
+          @if (session('success'))
+          <div class="alert alert-success">
+              <div>{{session('success')}}</div>
+              
+          </div>
+      @endif
+
+      @if ($errors->any())
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+      @endif
+       
         @yield('content')
 
         @stack('js')

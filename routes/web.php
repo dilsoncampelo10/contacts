@@ -18,14 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ContactController::class, 'index'])->name('contacts.index');
 Route::get('/login', [LoginController::class, 'create'])->name('login');
+Route::post('/login', [LoginController::class, 'store'])->name('signin');
 Route::get('/register', [RegisterController::class, 'create'])->name('register');
-Route::post('/register', [RegisterController::class, 'store'])->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('signup');
 
 Route::middleware('auth')->group(function () {
-    Route::get('contacts/create', [ContactController::class, 'create'])->name('contacts.create');
-    Route::post('contacts', [ContactController::class, 'store'])->name('contacts.store');
-    Route::get('contacts/{id}', [ContactController::class, 'show'])->name('contacts.show');
-    Route::get('contacts/{id}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
-    Route::put('contacts/{id}', [ContactController::class, 'update'])->name('contacts.update');
-    Route::delete('contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+    Route::resource('contacts', ContactController::class)->except(['index']);
+
+    Route::post('logout', [LoginController::class, 'destroy'])
+        ->name('logout');
 });
