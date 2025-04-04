@@ -1,0 +1,47 @@
+body {
+    background: linear-gradient(135deg, #0d6efd, #6610f2);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .container-custom {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  .table thead {
+    background: linear-gradient(to right, #0d6efd, #6610f2);
+    color: white;
+  }
+
+  .btn-primary {
+    background: linear-gradient(to right, #0d6efd, #6610f2);
+    border: none;
+  }
+
+  .btn-primary:hover {
+    filter: brightness(1.1);
+  }
+
+  .brand-header {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0d6efd;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .btn-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
