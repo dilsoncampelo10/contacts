@@ -7,7 +7,7 @@
 
 <div class="login-card">
     <div class="brand-logo">
-      Domnis
+      Dilson
     </div>
     <form action="{{ route('login') }}" method="POST">
       @csrf
